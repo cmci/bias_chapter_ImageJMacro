@@ -1,0 +1,13 @@
+\subsubsection{Extending Stack Analysis by Direct Measurements}
+
+We studied how to use for-loops to measure each frame/slice within a stack (\ref{sec:forloopStack}). There we did measurements by firstly setting measurement parameters with \ilcom{run("Set Measurements...")} and then did measurement by \ilcom{run("Measure")}. Measured values were shown in the table in the ``Results'' window. To use those measured values to \textit{e.g.} calculate statistics or plot the results, one should access the table in the ``Results'' window and parse all the values. This is possible with the macro language, but we will not try this method as it is indirect. Instead, we try to access directly to the measured values and compute. There are two ways.
+
+\begin{enumerate}
+\item \ilcom{getRawStatistics(nPixels, mean, min, max, std, histogram)}
+\item \ilcom{List.setMeasurement}
+\end{enumerate}
+The function \ilcom{getRawStatistics} measures statistical parameters from the image and returns those values in the variables declared as arguments. In other words, after this function is executed, variable \ilcom{mean} will have the mean intensity of the image
+\footnote{In this example we use a variable named \ilcom{mean}, but the name could be anything such as \ilcom{a} or \ilcom{b}.}. 
+If a ROI is selected, mean intensity of that ROI will be the value of \ilcom{mean}. We could loop each slice/frame within a stack and for each loop we could do \ilcom{getRawStatistics} and store measured values in arrays. But there is a drawback of using this function: the available parameters to measure is limited.
+
+The second method \ilcom{List.setMeasurement} does not have this limitation. One could measure many more parameters because all the available parameters listed in \ilcom{[Analyze > Set Measurements...]} are accessible with this function. The basic usage is shown in the code below, which measures the currently active image, extracts specific measurement value (in this example case ``Mean'' intensity) and then prints out that value in the log window. Try writing this code and test it with any image.

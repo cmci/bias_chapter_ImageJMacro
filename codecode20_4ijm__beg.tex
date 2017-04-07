@@ -1,0 +1,15 @@
+(code/code20_4.ijm)
+
+\begin{itemize}
+\item line 3 - 4:  Check if the selection type is a straight line ROI using function \ilcom{selectionType}. If not, macro terminates leaving a message.
+\item Line 5: An intensity profile array \ilcom{pA} is sampled by \ilcom{getProfile}().
+\item Line 6: Detect local minima using \ilcom{Array.findMinima}. The first argument is the line-profile array, and the second argument is ``tolerance''. A larger tolerance value is less sensitive to intensity minimum - less detection. You could try changing this value later to see the effect. An array containing indices of minima positions is returned. 
+\item Line 7: \ilcom{getSelectionCoordinates} with straight-line ROI stores two arrays, each for start/end x coordinates and start/end y coordinates. Two arrays, in this case \ilcom{xpoints} and \ilcom{ypoints}, have length of two. 
+\item Line 8 - 9: Resampling of straight-line ROI by number of points in the line-profile array \ilcom{pA}.
+\item Line 10-11: Prepare two new arrays to store x and y coordinates of minima positions. 
+\item Line 12: For-loop to go through minima indices array. 
+\item Line 13-14: \ilcom{minsA[i]} is the index for a single minimum, and using that index, x and y coordinate of that minimum position is retrieved and stored into new arrays prepared in line 10-11. 
+\item Line 16: After the looping, x and y coordinates of minima are used in \ilcom{makeSelection} function to create multiple point ROI. 
+\end{itemize}
+
+Run the code, then you should see multiple point ROIs indicating positions of rings (See fig. \ref{fig:treeRingsSelected}). Similar macro can be used to measure striated pattens in tissues or cell edges. In case of fluorescence images, \ilcom{Array.findMaxima} can be used to detect high-intensity maxima positions.

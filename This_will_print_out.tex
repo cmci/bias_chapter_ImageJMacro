@@ -1,0 +1,7 @@
+This will print out "exp13\_C0\_Z10\_T3" in the log window. In the second line, the function \ilcom{replace} is used. The old string ".tif" is replaced by a new 0 length string "". So it works!
+
+But what if our lucky assumption that all files end with ".tif" is not true and it could be anything? To work with this, we now need to use different strategy to know the file extension.
+
+By definition, file extension and the file name is separated by a dot. Length of the extension could be different, as some extension such as a python file is ".py" and a C code is ".c". Thus, we cannot assume that the length of the file extension is constant, but we know that there is a dot.
+
+For such cases with variable length of file extension being expected, we first need to know about the \textbf{index} of the dot within file name. Each character within file name is positioned at certain index from the beginning of the name. In the example we are now dealing with, the index 0 is ``e''. The index 1 is ``x''. Since the index starts from 0, the last index will be total length of the file name minus one. You could modify the code above like below to try getting the length of the file name.

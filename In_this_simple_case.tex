@@ -1,0 +1,23 @@
+In this simple case, 
+you might not feel the convenience of the user-defined function, 
+but you will start to feel its power as you start writing longer codes. 
+Advantages of using \ilcom{function} are
+
+\begin{enumerate}
+\item Once written in a macro file, it could be used as a single line function 
+as many times as you want in the macro file. This also means that if there is a bug, 
+fixing the function solves the problem in all places where the function is used.
+\item Long codes could be simplified to an explicit outline of events. Such as:
+\begin{lstlisting}[numbers=none]
+macro "whatever" {
+    	function1;
+		function2;
+		function3;
+}
+\end{lstlisting}
+\end{enumerate}
+
+\subsection{String Arrays}
+Array is a powerful tool. before going into how to use it, here is an easy explanation. 
+Imagine that an array is a stack of boxes. Boxes could contain either numbers or strings. 
+For instance, if you have a following list of strings:

@@ -1,0 +1,12 @@
+Measurement parameters can be added as argument by modifying the line 4 in the code 10.
+
+\begin{indentexercise}
+{1}
+Modify code 10 to include more measurement parameters (whatever you like), and test the macro. Check the results. 
+
+\item \textbf{Answer}:``Set Measurement'' could be added with more parameters to be measured, and the digits after the decimal point could be increased by increasing the number after ``decimal=''. For example, 
+\begin{lstlisting}[numbers=none]
+run("Set Measurements...", "area mean standard modal min centroid center perimeter bounding integrated median stack redirect=None decimal=5");
+\end{lstlisting}
+
+\end{indentexercise}

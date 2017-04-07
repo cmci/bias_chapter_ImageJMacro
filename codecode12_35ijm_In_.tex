@@ -1,0 +1,9 @@
+(code/code12_35.ijm)
+In the parenthesis after ``if'', there is obvious TRUE statement (5 is not 4).
+This is true, so the macro function bounded by curly braces is executed, which is to
+print out ``true'' in the log window.
+
+Try changing the line 2 to \ilcom{if (5 == 4)}. Running this prints nothing
+in the log window, because 5 is not 4 (FALSE!) so that the macro function in
+line 3 is ignored. To avoid such ignorant no-output behavior, you could add
+``else'' as follows.

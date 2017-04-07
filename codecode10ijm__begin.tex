@@ -1,0 +1,33 @@
+(code/code10.ijm)
+
+\begin{itemize}
+\item Line 3: \ilcom{nSlices} is a macro function that returns the number of slices in the active stack. 
+
+\item Line 4: Sets measurement parameters, from the menu would be \ilcom{[Analyze > Set measurements\ldots]}. In this case "mean min integrated" is added as part of the second argument. ``mean'' is the mean intensity, ``min'' is the minimum intensity and ``integrated'' is integrated density (total intensity). These keys for measured parameters could be known by using the command recorder. 
+You do not have to care for now about the "redirect" argument. ``decimal'' is the number of digits to 
+the right of the decimal point in real numbers displayed in the results table. 
+
+\item Line 5: clears the results table. 
+
+\item Line 6 to 9 is the loop. Loop starts from count i=0, and ends at i=frame-1. \ilcom{i++} is another way of writing \ilcom{i = i + 1}, so the increment is 1.  
+
+\item Line 7: calculates the current frame number. 
+
+\item Line 8: \ilcom{setSlice} function sets the frame according to the frame number calculated in line 6. 
+
+\item Line 9:  actual measurement is done. 
+Result will be recorded in the memory and will be displayed in the Results table window. 
+\end{itemize}
+
+Open an example stack \textbf{1703-2(3s-20s).stk}
+\footnote{Some of you may realize that you used this sequence 
+in the Image Processing / Analysis Course for learning 
+stack measurements using Z-profiler \ilcom{[Image > Stacks > Plot Z-Profile]}. Now, you can program similar 
+device in macro. 
+Good thing about the custom program
+is that you will be able to modify the program further to add more functions.
+For example, You could measure the time course of standard deviation of
+intensity within the selected ROI.}. This is a short sequence of FRAP analysis,
+so the edge of the one of the cells is bleached and then fluorescence signal at that bleached position recovers by time. 
+Select the frapped region by ROI tool (such as in the figure below). 
+Execute the macro. Results will be printed in the Results window (see the table in the figure right: this table is showing only "Mean" column as only ``Mean Intensity'' was selected in the measurement option).

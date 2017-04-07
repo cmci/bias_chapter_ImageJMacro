@@ -1,0 +1,9 @@
+The output after running this code is ``exp'' printed in the log window. The second argument of the function \ilcom{substring} is 0, and the third is 3. This tells the function \ilcom{substring} to extract characters from the index 0 to the index 2 (so the third argument will be the index just after the last index that would be included in the substring).
+
+\begin{indentexercise}
+{1}
+	\item Test changing the second and the third argument so that different part of the file name is extracted.
+	\item \textbf{Answer}: For example, changing the line 2 to \ilcom{substring(name, 3, 6)} prints \ilcom{13\textunderscore}
+\end{indentexercise}
+
+How could we know the index of the dot? For this we use the \ilcom{indexOf(string, substring)}. Try the following code.

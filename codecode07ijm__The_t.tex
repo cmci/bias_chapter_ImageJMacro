@@ -1,0 +1,32 @@
+(code/code07.ijm)
+
+The third line in the above macro has a function \ilcom{newImage()}. This
+function creates a new image. It has five arguments (in coding jargon, we say
+there are "five arguments"). To know what these arguments are, 
+the quickest way is to read the Build-In Macro Function page in ImageJ web site\footnote{\url{http://rsbweb.nih.gov/ij/developer/macro/functions.html}}.  
+The description of the function \ilcom{newImage} looks like this.
+
+\begin{indentCom}
+
+\fbox{
+\parbox[b][16em][c]{0.80\textwidth}{
+\textbf{newImage}(title, type, width, height, depth)\\
+Opens a new image or stack using the name title. 
+The string type should contain "8-bit", "16-bit", "32-bit" or "RGB". 
+In addition, it can contain "white", "black" or "ramp" (the default is "white"). 
+As an example, use "16-bit ramp" to create a 16-bit image containing a grayscale ramp.  Width and height specify the width and height of the image in pixels.  Depth specifies the number of stack slices.
+}}
+\end{indentCom}
+Using this information, you can modify the macro to change the size of the image.
+
+\begin{indentexercise}
+{1}
+Modify the code 7 and try changing the size of window to be created.
+
+\item \textbf{Answer}: Change the 3rd line as shown below. It will create a image with 500 pixels width and 200 pixels height image.  
+	\begin{lstlisting}[numbers=none]
+		newImage("test", "8-bit Black", 500, 200, 1);
+	\end{lstlisting}
+\end{indentexercise}
+
+Other optional lines you could add to the macro are ``comments''. This does not affect the macro but adding some comment about what the macro does helps you to understand what the macro is doing when you open the file some time later. There are two ways to add comment. One is the \textbf{block comment}. Texts bounded by \ilcom{ /*} and \ilcom{*/} will be ignored by interpreter. Another is the line comment. Texts in a line starting with double slash \ilcom{//} will be ignored by the interpreter. Below is an example of commenting code 07.

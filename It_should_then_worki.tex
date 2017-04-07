@@ -1,0 +1,3 @@
+It should then working again as we want.
+
+Let's change our task: We now want to know the time point that this image was taken. How should we do that? Examining the file name again, we realize that the time point number appears after ``T''. The number could be any length of digits, but currently is 0. Then the dot comes right after the number. We then just need to know the index of ``T'' \ldots but wait, we might have ``T'' anywhere, as this is a single character alphabet that could easily be a file name. Therefore we find the index of ``\_T'' that looks like more specific.

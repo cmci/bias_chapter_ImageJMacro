@@ -1,0 +1,17 @@
+(code/code12_75.ijm)
+
+\begin{itemize}
+\item Line 4 and 5 ask user to input two parameters.
+\item Line 6 is for setting a string variable, to abbreviate a long string assignment that appears four times in the macro.
+\item Line 7 evaluates these input parameters by comparing each of them separately, but the decision is made by associating two decisions with \ilcom{\&\&}. 
+\item Line 10, != compares left and right sides of the operators and returns true if they are NOT equal.   
+\end{itemize}
+From line 10 to 17, there are several layers of conditions. Macro programmer should use tab-shifting for deeper condition layers as above for the visibility of code. Easy-to-understand code helps the programmer oneself to debug afterward, and also for other programmers who might reuse the code.
+
+\subsubsection{Application of if-statement}
+\label{sec:dotmove}
+
+As an application of looping and conditions, we write a macro that produces an animation of moving dot. User inputs the speed of the dot, and then the animation is generated. 
+In the animation (which actually is a stack) the dot moves horizontally and bounces back from the edge
+of the frame. 
+\ilcom(if) operator is used to switch the movement direction.

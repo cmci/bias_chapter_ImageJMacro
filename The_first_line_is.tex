@@ -1,0 +1,15 @@
+The first line is printed in the order when the array was initialized. After
+sorting, names are in alphabetical order. Third line shows the reversed
+elements.
+
+Some functions return an array rather than taking array/s as argument. See Appendix for a list of those functions (\ref{subsec:arrayreturn}).
+
+\subsection{Application of Array in Image Analysis}
+
+\subsubsection{Intensity Profile and Array Functions}
+
+To learn the actual use of array in image analysis, we explore several example applications. In the first application, we use \ilcom{getProfile} function. We already used \ilcom{getProfile()} in the section \ref{subsec:numericalarray} ``Numerical Array''. This time, we use it in combination with Array functions to get local minima along the intensity profile - just like finding downward peak positions. We use a sample image Tree\textunderscore Rings.jpg (\ijmenu{[File > Open Samples > Tree Rings]}).
+
+We draw a straight line ROI crossing tree rings, and then the aim of the macro we will write is to detect ring positions along that line ROI and indicate those positions by point ROIs. The macro first reads the line-profile from the straight line ROI and then we use \ilcom{Array.findMinima} function to detect local minima (dark rings). Since this function returns the position of minima only as indices of the line-profile array, we need to get \ilcom{x} and \ilcom{y} coordinates of minima from their indices in order to plot minima positions in the original image. For this purpose, we resample the straight line ROI to the same number of points as the length of line-profile array. Let's write the code and learn by doing.
+
+Note: Before running the macro code20\_4.ijm, be sure to have a straight line ROI placed crossing tree rings (fig. \ref{fig:treeRingsSelected}).

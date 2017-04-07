@@ -1,0 +1,36 @@
+\begin{itemize}
+
+\item Line 3 \ilcom{for( i = 0 ; i < 5 ; i += 1)} sets the number of loops. 
+Three parameters are required for "for" loop. The first parameter defines the variable used for the counting loop and its initial value (\ilcom{i = 0}). The second parameter sets the condition for exiting from the loop (\ilcom{i < 5}). Third parameter sets the step size of i, meaning that how much value is added per loop (\ilcom{i += 1}, could also be subtraction, multiplication, division e.g. \ilcom{i -= 1}).
+Spaces between variables, numbers, operators and separators (e.g. semicolon, parenthesis) can be ignored and they could be written continuously. Macro runs without those spaces. However, this is not recommended for keeping a better readability of the code. Don't try to rush, make spaces!
+\item After this \ilcom{for(\ldots;\ldots;\ldots)} statement, there is a brace (\{) at the end of line 3 and the second one (\}) in the line 5. These curly braces tell ImageJ to loop macro functions in between so the function in line 4 will be iterated according to the parameters defined in the parenthesis of \ilcom{for}. 
+Between braces, you could add as many more lines of macro functions as you want, including inner \ilcom{for}-loops and \ilcom{if-else} conditions.
+\end{itemize}
+So when the macro interpreter reaches line 3 and sees \ilcom{for(}, it starts looking inside the parenthesis and defines that the counting starts with 0 using a variable \ilcom{i}, and then line 4 is executed. The macro prints out "0 \ensuremath\colon whatever" using the content of \ilcom{i}, string \ilcom{\ensuremath\colon} and the string variable \ilcom{txt}. 
+Then in line 5, interpreter sees the boundary \ilcom{\}} and goes back to line 3 and adds 1 to i (because of \ilcom{i+=1}). i = 1 then, so \ilcom{i<5} is true. The interpreter proceeds to line 4 and executes the macro function and prints out "1\ensuremath\colon whatever".  Such looping will continue until i = 5, since only by then \ilcom{i<5} is no longer true so interpreter exits from the for-loop. \\
+
+\begin{indentexercise}
+{1}
+(1) Change the first parameter in \ilcom{for(i=0;i<5;i+=1)} so that the macro prints out only 1 line. 
+
+(2) Change the second parameter in \ilcom{for(i=0;i<5;i+=1)} so that the macro prints out 10 lines. 
+
+(3) Change the third parameter in \ilcom{for(i=0;i<5;i+=1)} so that the macro prints out 10 lines. 
+
+\item \textbf{Answer}: 
+	\item (1) \ilcom{for(i=4;i<5;i+=1)}
+	\item (2) \ilcom{for(i=0;i<10;i+=1)}
+	\item (3) \ilcom{for(i=0;i<5;i+=0.5)}
+\end{indentexercise}
+
+\subsubsection{Stack Analysis by for-looping}
+\label{sec:forloopStack}
+
+One of frequently encountered tasks is image stack management, 
+such as measuring dynamics or multi-frame processing. 
+Many ImageJ functions work with only single frame within a stack. 
+Without macro programming, you need to execute the command while you flip the frame manually. 
+Macro programming enables you to automate this process. 
+Here is an example of measuring intensity change over time\footnote{What we write as macro here could be done with a single command \ilcom{[Image > Stacks > Plot Z-Profile]} but this only measures intensity. If you want to measure other values such as the minimum intensity, a macro should be written. }.
+
+\label{code:10}

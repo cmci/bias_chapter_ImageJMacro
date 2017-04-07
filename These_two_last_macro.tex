@@ -1,0 +1,16 @@
+These two last macro functions are said to work faster than +=1 or -=1, but I myself do not see much difference. Computers are fast enough these days.
+
+\begin{indentexercise}
+{1}
+(1) Try changing code 11 so that it uses "+=" sign.\\
+(2) Change code 11 so that it uses "++" sign, and prints out integers from 0 to 9.\\
+
+\item \textbf{Answer}: (1) Change line 6 to \ilcom{counter += 1;}. (2) Change line 4 to \ilcom{while (counter<=9)} and line 6 to \ilcom{counter++}.
+\end{indentexercise}
+
+\begin{indentexercise}
+{2}
+Change line 4 of code 11 to \ilcom{while (counter <0)} and check the effect (see below).
+\end{indentexercise}
+
+Evaluation of \ilcom{while} condition could also be at the end of loop. In this case, \ilcom{do} should be stated at the beginning of the loop. With do-while combination, the loop is always executed at least once, regardless of the condition defined by \ilcom{while} since macro interpreter reads lines from top to bottom. Write the following code.

@@ -1,0 +1,34 @@
+This is because when ImageJ scans through the macro from top to bottom, line by line, 
+it reaches the line for the assignment of the variable \ilcom{txt} and first sees the variable \ilcom{a} and interprets that \ilcom{txt} should be a numerical variable 
+(or function), since \ilcom{a} is known to be a number as it was defined so in one of the lines above. Then ImageJ goes on interpreting rightward thinking that this is math. Then finding a "+" which surprisingly is a character
+ImageJ cannot interpret string variable within a numerical function, so it returns an error message. The macro aborts.
+
+To overcome this problem, the programmer can tell ImageJ that 
+\textit{txt} is a string function at the beginning of the assignment 
+by putting a set of double quote. This tells the interpreter that this assignment is a string concatenation assignment and not a numerical assignment. 
+ImageJ does handle numerical values within string function, 
+so the line is interpreted without problem and prints out the result successfully. Note that such confusion of string and numerical types are rarely seen in general scripting languages and specific to ImageJ macro language.
+
+\begin{indentexercise}
+{2}
+
+\item Modify the code 4, so that the calculation involves subtraction (-), multiplication (*) and division (/).
+
+\item \textbf{Answer}: Add following lines to print results of calculations. Note that the arguments of \ilcom{print} are separated by comma, which will be space-separated text in the output.  
+\begin{lstlisting}[numbers=none]
+sub = a - b;
+mul = a * b;
+div = a / b;
+print(a, "-", b, "=", sub);
+print(a, "*", b, "=", mul);
+print(a, "/", b, "=", div);
+\end{lstlisting}
+
+\end{indentexercise}
+
+\subsection{Recording ImageJ macro functions}
+There are many commands in ImageJ. In the native ImageJ distribution, there are ca. 500 commands. In the Fiji distribution, there are 900+ commands. Some plugins are not macro-ready, but almost all of these commands can be accessed by build-in macro functions. That is great, but we then encounter a problem: how do we find a macro function that does what we want to do?
+
+To show you how to find a function, we write a small macro that creates a new image, adds noise, blurs this image by Gaussian blurring, and then thresholds the image. There is a convenient tool called \textbf{Command Recorder}. 
+Do \ijmenu{[PlugIns -> Macros -> Record\ldots]}. A window shown in figure
+\ref{fig_macroRecorderBlank} opens.

@@ -1,0 +1,33 @@
+(code/code10_1.ijm)
+
+\begin{itemize}
+  \item Line 2: Checks the ImageJ version, since \ilcom{List.setMeasurements} function is only available after version 1.42i.
+  \item Line 5, 6: Create new arrays with their length equal to the number of frames of the stack. These arrays will be used to store measurement results. 
+  \item Line7: for-loop going through each frames in the stack.
+  \item Line 10: Measure. All the parameters will be stored in the List. 
+  \item Line 11, 12: Retrieve the results, mean intensity and its standard deviation. 
+  \item Line 15, 16: Print out results in the log window. 
+\end{itemize}
+
+\subsection{Working with Strings}
+
+With some advanced macro programming, you might need to manipulate Strings (texts) from your code. For example, let's think about a title of an image ``exp13\_C0\_Z10\_T3.tif''. Such naming occurs often to indicate that this image is from the third time point (T3), at the 11th slice (Z10, imagine that the Z slice numbering starts from 0) and its the first channel (C0).
+
+We might be lucky enough to read out its dimensional information from header, but quite often such information is only available in the file name (the title of the image). To extract dimensional information from file name, we need to know how to deal with strings in macro to decompose those strings and extract information that we need. Build-in macro functions which are related to such tasks with strings are the following.
+
+\begin{shaded}
+\begin{indentCom}
+\item lengthOf(str)
+\item substring(string, index1, index2)
+\item indexOf(string, substring)
+\item indexOf(string, substring, fromIndex)
+\item lastIndexOf(string, substring)
+\item startsWith(string, prefix)
+\item endsWith(string, suffix)
+\item matches(string, regex)
+\item replace(string, old, new)
+\end{indentCom}\end{shaded}
+
+Let's go back to the example file name ``exp13\_C0\_Z10\_T3.tif'' again. If we need to get the file name without file extension, what should we do? Several ways are there, but lets start with the simplest way.
+
+We already know that all the file names are in the TIFF format, so all file names end with ``.tif''.  We could remove this suffix by replacing the ``.tif'' with a string with length 0. We could do this by using \ilcom{replace}.

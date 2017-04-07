@@ -1,0 +1,24 @@
+(code/code12_65.ijm)
+When you run this code as it is, line 4 and line 8 are both executed and prints
+the messages. For the first \ilcom{if} parenthesis, \ilcom{\&\&} operator tests if
+both sides are true. If both are indeed true, it returns true (1), and that is
+the case above. If one of them or both are false, then \ilcom{\&\&}
+operator returns false(0).
+
+On the other hand, in the second if parenthesis,
+\ilcom{||} operator tests if one of the two sides is true. Since both are
+true in the above code, OR operator returns true because at least one of them is
+true. Only when both sides are false, the returned value becomes false (0).
+
+\begin{indentexercise}
+{1}
+Adjust the values of \ilcom{a} and \ilcom{b} in code 12\_65 to \ilcom{true} or \ilcom{false} and
+compose other three possible combinations (e.g. \ilcom{a = true}, \ilcom{b = false} will print
+only one line). Check the output.
+
+Next, change the values of \ilcom{a} and \ilcom{b} to 0 and/or
+1 and check the results. 
+\end{indentexercise}
+
+Here is a more realistic example (though not very useful), an extended version
+of code 16\_6.

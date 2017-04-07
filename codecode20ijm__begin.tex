@@ -1,0 +1,15 @@
+(code/code20.ijm)
+
+\begin{itemize}
+\item Line 3 uses a function that creates a new array (\ilcom{newArray()}),
+defined by a parameter for number of array elements (in the example case its 5) and its name \ilcom{EMBL}.
+\item From line 4 to 8, each array from position 0 to 4 will be filled with
+names (Array starts with 0th element).
+\item Line 9 asks the user to input the address (position) within the array.
+Then this input address is examined if the address exists within the
+\ilcom{EMBL} array in line 10. \ilcom{EMBL.length} returns the number of "boxes"
+within the array. If this is satisfied, then line 10 prints out the string in that address.
+\end{itemize}
+
+Array could be created and initialized with actual values at the
+same time, so line 3 to 8 could be written in a single line like this:

@@ -1,0 +1,9 @@
+\begin{lstlisting}
+name = "exp13._C0._Z10_T3.tif";
+timeindex = indexOf(name, "_T");
+dotindex = lastIndexOf(name, ".");
+timepoint = substring(name, timeindex + 2, dotindex);
+timepoint = parseInt(timepoint);
+print(timepoint * 2);
+
+\end{lstlisting}

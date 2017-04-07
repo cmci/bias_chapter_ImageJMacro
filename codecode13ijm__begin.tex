@@ -1,0 +1,43 @@
+(code/code13.ijm)
+
+\begin{itemize}
+\item Lines 4 to 11: Set parameters for drawing a dot. It is also possible to directly use numerical values in the later lines, but for the sake of readability of the code, and also for possible later extension of the code, it is always better to use easy-to-understand variable names and explicitly define them before the main part starts. 
+\item A short note on the x-y coordinate system in digital images: Since digital image is a matrix of numbers, each pixel position is represented as coordinates. The top left corner of image is the position (x, y) = (0, 0). X increases horizontally towards right side of the image. Y increases vertically towards the bottom of the image.  In line 11, y-position of the dot is defined to be placed in the middle of the vertical axis. 
+\item Lines 14, 15: These lines set the drawing and background color. Three arguments are for intensity of each RGB component. Here the image is in grayscale so all the RGB components are set to the same value. 0 is black, and \ilcom{int} is white (255).
+\item Line 18 asks the user to input the speed of the dot movement.
+\item Lines 21, 22 prepares a new stack with parameters defined in lines 7, 8 and 9.
+\item Lines 25 to 34 is the loop for drawing moving dot. Loop will be iterated from the starting frame until the last frame. Line 32 creates an oval Region-of-Interest (ROI), which will be filled in line 33 with the foreground color that was already set in the line 14. \ilcom{makeOval} function is explained in the Built-in function page as follows.
+
+\begin{indentCom}
+\textbf{makeOval}(x, y, width, height)\\
+Creates an elliptical selection, where (x,y) defines the upper left corner of the bounding rectangle of the ellipse. 
+\end{indentCom}
+\item Line 27: Shifts the x position of the dot by ``speed'' distance. 
+\item Line 28: if the position calculated in the line 27 exceeds the boundary, either left \ilcom{(x\_position < 0)} OR right \ilcom{(x\_position > (w-sizenum))}, then the direction of movement is switched by multiplying -1.
+\end{itemize}
+
+\begin{indentexercise}
+{2}
+Modify code 13 that the dot moves up and down vertically. Change the stack width and height as well. 
+
+If you are successful with this, try further on to extend the code so that the dot moves both in x and y directions. For this, you need to have two independent speed \ilcom{xspeed} and \ilcom{yspeed} since change in the direction by bouncing should be independent in x and y. 
+
+\item \textbf{Answer}: By swapping x and y values, the movement becomes vertically oriented. We first swap the values of frame size and the initial position of the dot.  
+	\begin{lstlisting}[numbers=none]
+		w = 50;
+		h = 200;
+		x_positon =  (w/2)-(sizenum/2);
+		y_position = sizenum;
+	\end{lstlisting}
+	Then line 27 to 31 should be changed to move the dot in y (vertical) direction, and also to change the condition for bouncing at walls.
+	\begin{lstlisting}[numbers=none]
+		y_position += speed;
+		if ((y_position > (h-sizenum)) || (y_position < 0) ) { 
+			speed*=-1;
+			y_position += speed*2;
+		}
+	\end{lstlisting}
+
+\end{indentexercise}
+
+\newpage
